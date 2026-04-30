@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 270 20% 97%;
+    --foreground: 270 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 40% 15%;
+
+    --primary: 270 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 165 60% 50%;
+    --secondary-foreground: 165 80% 10%;
+
+    --muted: 270 15% 92%;
+    --muted-foreground: 270 10% 50%;
+
+    --accent: 165 55% 88%;
+    --accent-foreground: 165 60% 20%;
+
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 70% 55%;
+
+    --radius: 1.25rem;
+
+    --clay-shadow: 6px 6px 12px hsl(270 20% 85%), -4px -4px 10px hsl(0 0% 100%);
+    --clay-shadow-sm: 3px 3px 8px hsl(270 20% 88%), -2px -2px 6px hsl(0 0% 100%);
+    --clay-inset: inset 2px 2px 5px hsl(270 20% 88%), inset -2px -2px 5px hsl(0 0% 100%);
+
+    --neon-purple: 270 100% 70%;
+    --neon-mint: 165 100% 60%;
+    --warning: 35 92% 55%;
+    --warning-foreground: 35 90% 15%;
+    --success: 145 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --font-display: 'Nunito', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 270 10% 92%;
+
+    --card: 270 25% 12%;
+    --card-foreground: 270 10% 92%;
+
+    --popover: 270 25% 12%;
+    --popover-foreground: 270 10% 92%;
+
+    --primary: 270 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 165 70% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 18%;
+    --muted-foreground: 270 10% 60%;
+
+    --accent: 165 40% 20%;
+    --accent-foreground: 165 60% 80%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 270 80% 65%;
+
+    --clay-shadow: 6px 6px 16px hsl(270 30% 4%), -4px -4px 12px hsl(270 20% 16%);
+    --clay-shadow-sm: 3px 3px 10px hsl(270 30% 4%), -2px -2px 8px hsl(270 20% 16%);
+    --clay-inset: inset 2px 2px 6px hsl(270 30% 6%), inset -2px -2px 6px hsl(270 20% 16%);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .clay-card {
+    box-shadow: var(--clay-shadow);
+    @apply bg-card rounded-2xl;
+  }
+
+  .clay-card-sm {
+    box-shadow: var(--clay-shadow-sm);
+    @apply bg-card rounded-xl;
+  }
+
+  .clay-inset {
+    box-shadow: var(--clay-inset);
+    @apply rounded-xl;
+  }
+
+  .neon-border-purple {
+    box-shadow: 0 0 8px hsl(var(--neon-purple) / 0.5), 0 0 20px hsl(var(--neon-purple) / 0.2), inset 0 0 8px hsl(var(--neon-purple) / 0.1);
+    @apply border border-primary/50;
+  }
+
+  .neon-border-mint {
+    box-shadow: 0 0 8px hsl(var(--neon-mint) / 0.5), 0 0 20px hsl(var(--neon-mint) / 0.2), inset 0 0 8px hsl(var(--neon-mint) / 0.1);
+    @apply border border-secondary/50;
+  }
+
+  .clay-icon {
+    box-shadow: var(--clay-shadow-sm);
+    @apply rounded-2xl p-3 bg-card inline-flex items-center justify-center;
+  }
+
+  .phone-mockup {
+    @apply relative mx-auto bg-card rounded-[3rem] p-3 max-w-[420px];
+    box-shadow: 
+      20px 20px 40px hsl(270 20% 75% / 0.5),
+      -10px -10px 30px hsl(0 0% 100% / 0.8),
+      inset 0 0 0 2px hsl(270 15% 88%);
+  }
+
+  .dark .phone-mockup {
+    box-shadow: 
+      20px 20px 40px hsl(270 30% 3%),
+      -10px -10px 30px hsl(270 20% 14%),
+      inset 0 0 0 2px hsl(270 20% 18%);
+  }
+
+  .phone-screen {
+    @apply rounded-[2.25rem] overflow-hidden bg-background;
+  }
+
+  .phone-notch {
+    @apply absolute top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-foreground/90 rounded-b-2xl z-10;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
